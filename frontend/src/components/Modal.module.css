@@ -1,0 +1,338 @@
+/* ========================================
+   MODAL OVERLAY
+   ======================================== */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.75);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+ 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   MODAL CONTENT
+   ======================================== */
+.modalContent {
+  background: linear-gradient(to bottom, #FFFFFF 0%, #F8FAFC 100%);
+  border-radius: 20px;
+  padding: 0;
+  width: 92%;
+  max-width: 480px;
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   MODAL HEADER
+   ======================================== */
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+/* ========================================
+   CLOSE BUTTON
+   ======================================== */
+.closeButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(100, 116, 139, 0.1);
+  border: 2px solid rgba(100, 116, 139, 0.2);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #64748B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.closeButton:hover {
+  background: rgba(100, 116, 139, 0.15);
+  border-color: rgba(100, 116, 139, 0.3);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.closeButton:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* ========================================
+   MODAL BODY
+   ======================================== */
+.modalBody {
+  padding: 1.5rem 2rem 2rem 2rem;
+}
+
+.modalMessage {
+  font-size: 1.0625rem;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ========================================
+   MODAL FOOTER
+   ======================================== */
+.modalFooter {
+  padding: 1.25rem 2rem 2rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ========================================
+   OK BUTTON
+   ======================================== */
+.okButton {
+  padding: 0.875rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.okButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.okButton:hover::before {
+  left: 100%;
+}
+
+.okButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.okButton:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   SUCCESS MODAL
+   ======================================== */
+.modalSuccess .modalHeader {
+  background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+  border-bottom-color: #10B981;
+}
+
+.modalSuccess .modalTitle {
+  background: linear-gradient(135deg, #065F46 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modalSuccess .okButton {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+}
+
+.modalSuccess .okButton:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+/* ========================================
+   ERROR MODAL
+   ======================================== */
+.modalError .modalHeader {
+  background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+  border-bottom-color: #EF4444;
+}
+
+.modalError .modalTitle {
+  background: linear-gradient(135deg, #991B1B 0%, #DC2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modalError .okButton {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  color: #FFFFFF;
+}
+
+.modalError .okButton:hover {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+}
+
+/* ========================================
+   WARNING MODAL
+   ======================================== */
+.modalWarning .modalHeader {
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border-bottom-color: #F97316;
+}
+
+.modalWarning .modalTitle {
+  background: linear-gradient(135deg, #92400E 0%, #C2410C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modalWarning .okButton {
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  color: #FFFFFF;
+}
+
+.modalWarning .okButton:hover {
+  background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
+}
+
+/* ========================================
+   INFO MODAL (AROLITEC)
+   ======================================== */
+.modalInfo .modalHeader {
+  background: linear-gradient(135deg, #FFF5F0 0%, #FFEDE5 100%);
+  border-bottom-color: #FF6B35;
+}
+
+.modalInfo .modalTitle {
+  background: linear-gradient(135deg, #D84315 0%, #FF6B35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modalInfo .okButton {
+  background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+  color: #FFFFFF;
+}
+
+.modalInfo .okButton:hover {
+  background: linear-gradient(135deg, #E55A2B 0%, #D84315 100%);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .modalContent {
+    max-width: 95%;
+    border-radius: 18px;
+  }
+
+  .modalHeader {
+    padding: 1.5rem;
+  }
+
+  .modalTitle {
+    font-size: 1.375rem;
+  }
+
+  .modalBody {
+    padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .modalMessage {
+    font-size: 1rem;
+  }
+
+  .modalFooter {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .okButton {
+    padding: 0.75rem 2rem;
+    font-size: 0.9375rem;
+  }
+
+  .closeButton {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalContent {
+    border-radius: 16px;
+  }
+
+  .modalHeader {
+    padding: 1.25rem;
+  }
+
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+
+  .modalBody {
+    padding: 1rem 1.25rem 1.25rem 1.25rem;
+  }
+
+  .modalMessage {
+    font-size: 0.9375rem;
+  }
+
+  .modalFooter {
+    padding: 0.875rem 1.25rem 1.25rem 1.25rem;
+  }
+
+  .okButton {
+    width: 100%;
+    padding: 0.875rem;
+  }
+}

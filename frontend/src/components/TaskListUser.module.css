@@ -1,0 +1,131 @@
+.taskListContainer {
+  width: 100%;
+}
+
+.loadingState {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: #64748B;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #FFFFFF;
+  border: 2px dashed #E2E8F0;
+  border-radius: 12px;
+}
+
+.emptyIcon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyIcon svg {
+  width: 32px;
+  height: 32px;
+  color: #94A3B8;
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin: 0 0 0.5rem 0;
+}
+
+.emptyText {
+  font-size: 1rem;
+  color: #64748B;
+  margin: 0 0 1.5rem 0;
+}
+
+.emptyButton {
+  padding: 0.85rem 1.75rem;
+  background: linear-gradient(135deg, #FF6B35 0%, #E55A2B 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.25);
+}
+
+.emptyButton:hover {
+  background: linear-gradient(135deg, #E55A2B 0%, #D84315 100%);
+  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Grille 3 colonnes pour les tâches - COMME DASHBOARD */
+.tasksList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+/* PAGINATION SIMPLE - SANS CHICHI */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.paginationButton {
+  background: none;
+  border: none;
+  color: #64748B;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.paginationButton:hover:not(:disabled) {
+  color: #FF6B35;
+}
+
+.paginationButton:disabled {
+  color: #CBD5E1;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.paginationInfo {
+  font-size: 0.875rem;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tasksList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tasksList {
+    grid-template-columns: 1fr;
+  }
+
+  .paginationButton {
+    font-size: 1.125rem;
+  }
+
+  .paginationInfo {
+    font-size: 0.8125rem;
+  }
+}

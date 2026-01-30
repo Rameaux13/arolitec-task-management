@@ -1,0 +1,216 @@
+.taskListContainer {
+  width: 100%;
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.taskItemWrapper {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.taskItemWrapper > div:first-child {
+  flex: 1;
+}
+
+.assignButton {
+  padding: 0.6rem 1rem;
+  background-color: #10B981;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.assignButton:hover {
+  background-color: #059669;
+}
+
+.loadingState {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: #64748B;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #FFFFFF;
+  border: 2px dashed #E2E8F0;
+  border-radius: 8px;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin: 0 0 0.5rem 0;
+}
+
+.emptyText {
+  font-size: 1rem;
+  color: #64748B;
+  margin: 0 0 1.5rem 0;
+}
+
+.emptyButton {
+  padding: 0.85rem 1.75rem;
+  background-color: #FF6B35;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.emptyButton:hover {
+  background-color: #E55A2B;
+}
+
+.assignModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2500;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.assignModalContent {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.assignModalTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin: 0 0 1.5rem 0;
+}
+
+.assignFormGroup {
+  margin-bottom: 1.5rem;
+}
+
+.assignLabel {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 0.5rem;
+}
+
+.assignSelect {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  color: #1E293B;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  transition: border-color 0.2s ease;
+}
+
+.assignSelect:focus {
+  outline: none;
+  border-color: #FF6B35;
+}
+
+.assignModalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #E2E8F0;
+}
+
+.cancelButton,
+.confirmButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton {
+  background-color: #FFFFFF;
+  color: #64748B;
+  border: 1px solid #E2E8F0;
+}
+
+.cancelButton:hover {
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+.confirmButton {
+  background-color: #10B981;
+  color: #FFFFFF;
+}
+
+.confirmButton:hover {
+  background-color: #059669;
+}
+
+@media (max-width: 768px) {
+  .taskItemWrapper {
+    flex-direction: column;
+  }
+
+  .assignButton {
+    width: 100%;
+  }
+}
